@@ -1,4 +1,6 @@
 ---
+name: obsidian-rag-shortcut-bot
+description: Retrieves grounded answers from an approved Obsidian vault using bounded search, source citations, and explicit uncertainty.
 title: Obsidian RAG Shortcut Bot
 slug: obsidian-rag-shortcut-bot
 status: active
