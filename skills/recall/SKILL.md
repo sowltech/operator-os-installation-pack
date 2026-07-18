@@ -1,4 +1,6 @@
 ---
+name: operator-os-recall
+description: Finds relevant approved vault material and returns bounded source-backed context for Operator OS tasks.
 title: Recall
 slug: recall
 status: active
