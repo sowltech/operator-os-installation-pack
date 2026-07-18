@@ -10,8 +10,8 @@ operating system inside a client environment.
 | 1 | Intake | Scope written and counter-signed using `docs/CLIENT_ONBOARDING.md` |
 | 2 | Structure | Vault folders created from `examples/demo-client-vault/` |
 | 3 | Templates | Six templates from `templates/` placed into the client vault |
-| 4 | Skills | Five skill folders from `skills/` copied into the client vault |
-| 5 | Validate | `scripts/check_audit_row.py` passes against the empty audit log |
+| 4 | Skills | Six skill folders from `skills/` copied into the client vault |
+| 5 | Validate | `scripts/check_witness_row.py` passes against the empty audit log |
 | 6 | Measure | `scripts/measure_vault.py` records the context-savings baseline |
 | 7 | Handover | Client completes one live task end-to-end |
 
@@ -40,13 +40,25 @@ For each of the six templates under `templates/`:
 
 ## Phase 4 — Skills
 
-Copy each of the five skill folders from `skills/` into the client vault's
+Copy each of the six skill folders from `skills/` into the client vault's
 `skills/` directory. Verify each skill's `run.sh` is executable.
+
+Two skills — `obsidian-rag-shortcut-bot` and `recall` — carry a `name:`
+frontmatter field distinct from their folder/slug; `recall`'s namespaced
+`operator-os-recall` name follows an established pattern worth preserving
+(no recorded history confirms this was the original stated rationale, but
+it plausibly reduces collision risk with an unrelated "recall" skill from
+another source). This does not
+eliminate a folder-level collision if two different packs' `skills/recall/`
+are copied into the same client vault — rename one folder at copy time if
+that occurs. See the README's "Skill identity and collision notes" section
+for detail, and run `python3 scripts/validate_skill_identity.py` to check
+all six skill folders before delivery.
 
 ## Phase 5 — Validate
 
 ```
-python3 scripts/check_audit_row.py --log /path/to/client-vault/90_AUDIT/audit-log.md
+python3 scripts/check_witness_row.py --log /path/to/client-vault/90_AUDIT/audit-log.md
 ```
 
 Expect: zero rows in window. Exit 0. (A fresh install has no audit rows; the
